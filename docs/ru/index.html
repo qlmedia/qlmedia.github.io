@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>QLMedia</title>
+  <meta name="description" content="Information on the QLMedia project.">
+  <meta name="author" content="QLMedia">
+
+  <meta property="og:title" content="QLMedia Project">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://qlmedia.github.io/">
+  <meta property="og:description" content="QLMedia is a macOS QuickLook extension for media preview.">
+  <meta property="og:image" content="/img/qlmedia-logo.svg">
+
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/ru/css/ru.css">
+</head>
+
+<body>
+  <div>
+    <div style="float:left;">
+      <img src="/img/qlmedia-logo.svg" alt="QLMedia Logo" width="128" height="128">
+    </div>
+    <div>
+      <h1>QLMedia</h1>
+      <h3>Расширение QuickLook macOS для предварительного просмотра видео/аудио.</h3>
+    </div>
+  </div>
+
+  <div style="clear:both;">
+    <h3>Проблемы / информация</h3>
+    <p>(сделать: сортировку по разделам, дополнить, добавить снимки экранов)</p>
+    <ul>
+
+      <li>Общая информация:</li>
+      <ul>
+        <li>Минимальная версия macOS: <strong>10.15 (Catalina)</strong>, в более ранних версиях отсутствует требуемый функционал.</li>
+        <li>Для активации расширения требуется запустить <strong>QLMedia.app</strong> как минимум один раз.</li>
+        <li>Тормозит интерфейс по причине его работы в изолированном окружении QuickLook.</li>
+        <li><strong>QLMedia.app</strong> регистрирует в системе тип файла <strong>.vlcf</strong>.
+          Для таких файлов будет попытка сделать эскиз и отобразить его предварительный просмотр.
+          Для их открытия в нужном приложении - настройте его в <strong>Finder</strong>.</li>
+      </ul>
+
+      <li>Воспроизведение:</li>
+      <ul>
+        <li>При включенном режиме "Пауза на последнем кадре" предполагается, что после паузы в случае необходимости
+          дальнейшего просмотра сначала будет изменена текущая позиция. Если будет сразу запущено воспроизведение без
+          предварительного изменения текущей позиции, то воспроизведение будет завершено.</li>
+      </ul>
+
+      <li>Многоэкранность:</li>
+      <ul>
+        <li>macOS с несколькими экранами работает плохо – теряет порядок их подключения,
+          моргают экраны, сбрасывается разрешение/HDR и т.д.<br>
+          Для лучшего контроля за подключёнными экранами можно использовать например:
+          <ul>
+            <li><a href="https://github.com/jakehilborn/displayplacer" target="_blank">displayplacer</a></li>
+            <li><a href="https://www.madrau.com/" target="_blank">SwitchResX</a></li>
+            <li><a href="https://cordlessdog.com/stay/" target="_blank">Stay</a></li>
+          </ul>
+        </li>
+        <li>При отключении(/подключении?) экранов бывает "залипание" – превью перестаёт реагировать на клики.<br>
+          Исправляется рестартом <strong>Finder</strong></li>
+        <ul>
+          <li>через системное меню</li>
+          <li>запуском скрипта <strong>Reset Finder</strong> из <strong>QLMedia.app</strong></li>
+          <li>из командной строки: <code>$ pkill -1 Finder</code></li>
+        </ul>
+        Вызов <code>qlmanage -p &lt;file&gt;</code> работает корректно.
+        <li>При работе с 3+ экранами предпочитаемый экран для полноэкранного просмотра
+          выставляется нажатием на кнопку в <strong>QLMedia.app / Experimental / Play on screen (кнопка)</strong>
+          после переноса приложения на требуемый экран.<br>
+          На последних macOS можно использовать степпер.
+        </li>
+      </ul>
+
+      <li>Проблемы:</li>
+      <ul>
+        <li>Не работает на .avi/.mpeg/... т.к. macOS не даёт доступа к превью подобных файлов.</li>
+        <li>В режиме галереи переход к следующему файлу не приводит к завершению проигрывания текущего.</li>
+      </ul>
+    </ul>
+  </div>
+</body>
+
+</html>
